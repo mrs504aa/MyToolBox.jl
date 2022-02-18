@@ -1,7 +1,13 @@
 module MyToolBox
 
-function ArrayNormalization(A::Vector{<:Real})
-    return (A .- minimum(A)) ./ (maximum(A) - minimum(A))
+import Statistics
+
+function SignalNormalization(A::Vector{<:Real}; TriangularSignal::Bool = false)
+    if TriangularSignal == true 
+        return (A .- Statistics.mean(A)) ./ (sqrt(2) * Statistics.std(A) * 2) .+ 0.5
+    else
+        return (A .- minimum(A)) ./ (maximum(A) - minimum(A))
+    end
 end
 
 function SignalCut(TargetSignal::Vector{<:Real}, ReferenceSignal::Vector{<:Real}, Window::Vector{<:Real})
@@ -15,6 +21,6 @@ function SignalCut(TargetSignal::Vector{<:Real}, ReferenceSignal::Vector{<:Real}
 end
 
 export ArrayNormalization
-export SignalCut
+export SignalNormalization
 
-end 
+end

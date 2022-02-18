@@ -20,7 +20,7 @@ function SignalCut(TargetSignal::Vector{<:Real}, ReferenceSignal::Vector{<:Real}
     return TargetSignal[S]
 end
 
-export ArrayNormalization
+export SignalCut
 export SignalNormalization
 
 end

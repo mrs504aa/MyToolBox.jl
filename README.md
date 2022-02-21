@@ -9,3 +9,6 @@ Personal Toolbox.
 * ```SignalNormalization(A::Vector{<:Real}; TriangularSignal::Bool = false)```
 
   Normalize the real number vector ```A```. if ```TriangularSignal``` is ```true```, then the signal will be normalized based on its standard deviation.
+ 
+* ```VectorSplit(TargetVector::Vector{<:Any}, N::Int64)```
+  Similar function to ```numpy.array_split``` in 1 dim.

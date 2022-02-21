@@ -20,7 +20,23 @@ function SignalCut(TargetSignal::Vector{<:Real}, ReferenceSignal::Vector{<:Real}
     return TargetSignal[S]
 end
 
+function VectorSplit(TargetVector::Vector{<:Any}, N::Int64)
+    L1 = length(TargetVector)
+    L2 = trunc(Int64, L1 / N)
+    X = L1 - N * L2
+
+    Result = Vector{Vector}(undef, N)
+    CutStart = 1
+    for i in 1:N
+        Result[i] = TargetVector[CutStart:CutStart-1+L2+((i-1)<X)]
+        CutStart += L2 + (i < X)
+    end
+    
+    return Result
+end
+
 export SignalCut
 export SignalNormalization
+export VectorSplit
 
 end

@@ -13,3 +13,8 @@ Personal Toolbox.
 * ```VectorSplit(TargetVector::Vector{<:Any}, N::Int64)```
 
   Similar function to ```numpy.array_split``` in 1 dim.
+
+* ```CurrentTask(FuncName::Symbol)```
+
+  Tracking the function being executed. Just need to insert ```CurrentTask(nameof(var"#self#"))``` at the place you want.
+

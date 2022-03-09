@@ -20,7 +20,7 @@ Personal Toolbox.
 
   Tracking the function being executed. Just need to insert ```CurrentTask(nameof(var"#self#"))``` at the place you want.
 
-* ```ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int64,KxLim::Vector{<:Real}, KyLim::Vector{<:Real},Density::Int64 = 21)```
+* ```ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int64, KxLim::Vector{<:Real}, KyLim::Vector{<:Real}, Density::Int64 = 21)```
 
   Calculate the Chern number for the given 2D model ```HamiltonianModel(kx, ky, Paras::Tuple)```. ```kx``` and ```ky``` are coordinates in the Brillouin zone. ```HamiltonianDim``` is the size of your Hamiltonian matrix, like 2x2 or 3x3. ```KxLim``` and ```KyLim``` are the boundaries of ```kx``` and ```ky```. ```Density``` is the mesh density of the calculation.
 

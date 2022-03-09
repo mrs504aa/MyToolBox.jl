@@ -31,12 +31,6 @@ Personal Toolbox.
 * ```ChernNumberExample()``` 
   
   Simply a function which tests the function ```ChernNumber``` with Hamiltonian
-  $$
-  \begin{pmatrix}
-  -2t \cos(k_x) -2t \cos(k_y) - \mu & \Delta (\sin(k_x) - i \sin(k_y)) \\
-  \Delta (\sin(k_x) + i \sin(k_y)) & +2t \cos(k_x) +2t \cos(k_y) + \mu
-  \end{pmatrix}.
-  $$
   
   <img src = "https://latex.codecogs.com/svg.image?&space;\begin{pmatrix}&space;-2t&space;\cos(k_x)&space;-2t&space;\cos(k_y)&space;-&space;\mu&space;&&space;\Delta&space;(\sin(k_x)&space;-&space;i&space;\sin(k_y))&space;\\&space;\Delta&space;(\sin(k_x)&space;&plus;&space;i&space;\sin(k_y))&space;&&space;&plus;2t&space;\cos(k_x)&space;&plus;2t&space;\cos(k_y)&space;&plus;&space;\mu&space;\end{pmatrix}">
 

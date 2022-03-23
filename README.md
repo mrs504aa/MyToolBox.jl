@@ -29,6 +29,7 @@ Personal Toolbox.
   This function returns ```ChernNumber::Vector{Float64}, LatticeField::Matrix{Float64}```. 
   
   The ```LatticeField``` is defined as follow (A is the berry connection, S is the area size inside the loop integral.)
+  
   <img src = "https://latex.codecogs.com/svg.image?F&space;=&space;\frac{\oint&space;d\mathbf{k}&space;\mathbf{\mathcal{A}}_{\mathbf{k}}}{S}">
 * ```ChernNumberExample()``` 
   

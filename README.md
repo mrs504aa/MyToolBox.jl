@@ -26,8 +26,10 @@ Personal Toolbox.
 
   This function based on the paper [arXiv:cond-mat/0503172](https://arxiv.org/abs/cond-mat/0503172) ([J. Phys. Soc. Jpn. 74, pp. 1674-1677 (2005)](https://doi.org/10.1143/JPSJ.74.1674)).
 
-  This function returns ```ChernNumber::Vector{Float64}, LatticeField::Matrix{Float64}```. The ```LatticeField``` is defined in the paper mentioned above.
-
+  This function returns ```ChernNumber::Vector{Float64}, LatticeField::Matrix{Float64}```. 
+  
+  The ```LatticeField``` is defined as follow (A is the berry connection, S is the area size inside the loop integral.)
+  <img src = "https://latex.codecogs.com/svg.image?F&space;=&space;\frac{\oint&space;d\mathbf{k}&space;\mathbf{\mathcal{A}}_{\mathbf{k}}}{S}">
 * ```ChernNumberExample()``` 
   
   Simply a function which tests the function ```ChernNumber``` with Hamiltonian

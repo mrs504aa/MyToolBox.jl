@@ -30,12 +30,16 @@ Personal Toolbox.
   
   The ```LatticeField``` is defined as follow (A is the berry connection, S is the area size inside the loop integral.)
   
+  <center>
   <img src = "https://latex.codecogs.com/svg.image?F&space;=&space;\frac{\oint&space;d\mathbf{k}&space;\mathbf{\mathcal{A}}_{\mathbf{k}}}{S}">
+  </center>
 * ```ChernNumberExample()``` 
   
   Simply a function which tests the function ```ChernNumber``` with Hamiltonian
   
+  <center>
   <img src = "https://latex.codecogs.com/svg.image?&space;\begin{pmatrix}&space;-2t&space;\cos(k_x)&space;-2t&space;\cos(k_y)&space;-&space;\mu&space;&&space;\Delta&space;(\sin(k_x)&space;-&space;i&space;\sin(k_y))&space;\\&space;\Delta&space;(\sin(k_x)&space;&plus;&space;i&space;\sin(k_y))&space;&&space;&plus;2t&space;\cos(k_x)&space;&plus;2t&space;\cos(k_y)&space;&plus;&space;\mu&space;\end{pmatrix}">
+  </center>
 
   You can check out the source code ```ChernNumber.jl``` directly.
 

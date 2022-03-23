@@ -52,7 +52,7 @@ function LatticeField(KL::Tuple{Float64,Float64}, Tick::Tuple{Float64,Float64}, 
 end
 
 function ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int64, KxLim::Vector{<:Real}, KyLim::Vector{<:Real},
-    Density::Int64 = 21)
+    Density::Int64=21)
 
     KxAxis = range(KxLim[1], KxLim[2], Density)
     KxTick = (KxAxis[end] - KxAxis[1]) / (Density - 1)
@@ -73,11 +73,11 @@ function ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int64, KxLi
         Result[i] = sum(ResultM[i, :, :])
     end
 
-    return Result ./ (2 * pi), ResultM
+    return Result ./ (2 * pi), ResultM ./ (KxTick * KyTick)
 end
 
 function ChernNumberExample()
     Paras = (4, 1, 6)
-    C, Field = ChernNumber(HamiltonianTest, Paras, HamiltonianDim = 2, KxLim = [0, 2 * pi], KyLim = [0, 2 * pi])
+    C, Field = ChernNumber(HamiltonianTest, Paras, HamiltonianDim=2, KxLim=[0, 2 * pi], KyLim=[0, 2 * pi])
     println("Chern number: ", C)
 end

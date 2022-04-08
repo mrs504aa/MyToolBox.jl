@@ -1,4 +1,1 @@
-*
-!*.gitignore
-!*.jl
-!Project.toml
+Manifest.toml

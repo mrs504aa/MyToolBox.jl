@@ -1,10 +1,10 @@
-function PrintInstalledPackages()
+function PrintInstalledPackages(FileName::String = "JuliaDependencies.txt")
     deps = [pair.second for pair in Pkg.dependencies()]
     direct_deps = filter(p -> p.is_direct_dep, deps)
     [(x.name, x.version) for x in direct_deps]
     pkg_list = [x.name for x in direct_deps]
 
-    outfile = "julia-dependencies.txt"
+    outfile = FileName
     open(outfile, "w") do f
         for i in pkg_list
             println(f, i)
@@ -12,8 +12,8 @@ function PrintInstalledPackages()
     end
 end
 
-function RestorePackages()
-    infile = "julia-dependencies.txt"
+function RestorePackages(FileName::String = "JuliaDependencies.txt")
+    infile = FileName
     open(infile, "r") do file
         for line in eachline(file)
             Pkg.add(line)

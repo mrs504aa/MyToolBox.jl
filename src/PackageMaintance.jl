@@ -20,3 +20,6 @@ function RestorePackages(FileName::String = "JuliaDependencies.txt")
         end
     end
 end
+
+export PrintInstalledPackages
+export RestorePackages

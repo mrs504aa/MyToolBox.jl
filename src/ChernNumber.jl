@@ -81,3 +81,6 @@ function ChernNumberExample()
     C, Field = ChernNumber(HamiltonianTest, Paras, HamiltonianDim=2, KxLim=[0, 2 * pi], KyLim=[0, 2 * pi])
     println("Chern number: ", C)
 end
+
+export ChernNumber
+export ChernNumberExample

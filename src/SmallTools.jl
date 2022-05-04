@@ -47,3 +47,8 @@ function CurrentTask(FuncName::Symbol)
 
     printstyled(STR; color=:blue)
 end
+
+export SignalCut
+export SignalNormalization
+export VectorSplit
+export CurrentTask

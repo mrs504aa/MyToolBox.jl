@@ -2,15 +2,10 @@ module MyToolBox
 
 import Statistics
 import LinearAlgebra
+import Pkg
 
 include("SmallTools.jl")
 include("ChernNumber.jl")
-
-export SignalCut
-export SignalNormalization
-export VectorSplit
-export CurrentTask
-export ChernNumber
-export ChernNumberExample
+include("PackageMaintance.jl")
 
 end

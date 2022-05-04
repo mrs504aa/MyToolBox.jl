@@ -1,3 +1,5 @@
+# These codes are from the Julia discourse, https://discourse.julialang.org/t/how-to-see-all-installed-packages-a-few-other-pkg-related-questions/1231.
+
 function PrintInstalledPackages(FileName::String = "JuliaDependencies.txt")
     deps = [pair.second for pair in Pkg.dependencies()]
     direct_deps = filter(p -> p.is_direct_dep, deps)

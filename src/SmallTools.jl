@@ -26,7 +26,7 @@ function VectorSplit(TargetVector::AbstractVector, N::Int)
     X = L1 - N * L2
 
     Result = Vector{Vector{eltype(TargetVector)}}(undef, N)
-    CutStart = eachindex(TargetVector)[1]
+    CutStart = firstindex(TargetVector)
     for i = 1:N
         Result[i] = TargetVector[CutStart:CutStart-1+L2+(i-1<X)]
         CutStart += L2 + (i-1 < X)

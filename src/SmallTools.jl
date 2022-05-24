@@ -28,8 +28,8 @@ function VectorSplit(TargetVector::AbstractVector, N::Int)
     Result = Vector{Vector{eltype(TargetVector)}}(undef, N)
     CutStart = eachindex(TargetVector)[1]
     for i = 1:N
-        Result[i] = TargetVector[CutStart -1:CutStart-1+L2+((i-1)<X)]
-        CutStart += L2 + (i < X)
+        Result[i] = TargetVector[CutStart:CutStart-1+L2+(i-1<X)]
+        CutStart += L2 + (i-1 < X)
     end
 
     return Result

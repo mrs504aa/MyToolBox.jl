@@ -10,7 +10,7 @@ function HamiltonianTest(Kx, Ky, Paras)
     return M
 end
 
-function ULink(MU::Tuple{Float64,Float64}, KL::Tuple{Float64,Float64}, HamiltonianDim::Int64, HamiltonianModel, Paras::Tuple)
+function ULink(MU::Tuple{Float64,Float64}, KL::Tuple{Float64,Float64}, HamiltonianDim::Int, HamiltonianModel, Paras::Tuple)
     Kx, Ky = KL
     Kx1, Ky1 = MU
 
@@ -27,7 +27,7 @@ function ULink(MU::Tuple{Float64,Float64}, KL::Tuple{Float64,Float64}, Hamiltoni
     return Result
 end
 
-function LatticeField(KL::Tuple{Float64,Float64}, Tick::Tuple{Float64,Float64}, HamiltonianDim::Int64, HamiltonianModel, Paras::Tuple)
+function LatticeField(KL::Tuple{Float64,Float64}, Tick::Tuple{Float64,Float64}, HamiltonianDim::Int, HamiltonianModel, Paras::Tuple)
     Kx, Ky = KL
     KxTick, KyTick = Tick
     Result = fill(1.0 + 0.0 * im, HamiltonianDim)
@@ -51,13 +51,19 @@ function LatticeField(KL::Tuple{Float64,Float64}, Tick::Tuple{Float64,Float64}, 
     return F
 end
 
-function ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int64, KxLim::Vector{<:Real}, KyLim::Vector{<:Real},
-    Density::Int64=21)
+function ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int, KxLim::AbstractVector{<:Real}, KyLim::AbstractVector{<:Real},
+    Density::Int=21)
 
-    KxAxis = range(KxLim[1], KxLim[2], Density)
+    length(KxLim) == 2 || throw("Invalid length of (KxLim = $KxLim), should be 2.")
+    length(KyLim) == 2 || throw("Invalid length of (KyLim = $KyLim), should be 2.")
+
+    KxLim = float.(KxLim)
+    KyLim = float.(KyLim)
+
+    KxAxis = range(KxLim[begin], KxLim[end], Density)
     KxTick = (KxAxis[end] - KxAxis[1]) / (Density - 1)
 
-    KyAxis = range(KyLim[1], KyLim[2], Density)
+    KyAxis = range(KyLim[begin], KyLim[end], Density)
     KyTick = (KyAxis[end] - KyAxis[1]) / (Density - 1)
 
     ResultM = zeros(Float64, HamiltonianDim, Density, Density)

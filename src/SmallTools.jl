@@ -57,6 +57,11 @@ function CurrentTask()
     CurrentTask(FuncName)
 end
 
+macro CurrentTask()
+    S = esc(:var"#self#")
+    return :(CurrentTask(nameof($S)))
+end
+
 export SignalCut
 export SignalNormalization
 export VectorSplit
@@ -65,6 +70,7 @@ export CurrentTask
 if basename(PROGRAM_FILE) == basename(@__FILE__)
     function TestFunction()
         CurrentTask()
+        @CurrentTask
     end
     TestFunction()
 end

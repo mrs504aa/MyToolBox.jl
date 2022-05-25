@@ -1,6 +1,8 @@
 # MyToolBox.jl
 ## News
 Better ```CurrentTask()```.
+
+Add macro ```@CurrentTask```.
 ## Introduction
 Personal Toolbox.
 ## Functions
@@ -51,6 +53,10 @@ Personal Toolbox.
   julia> CurrentTask()
   ----------------------------------------------Current Task: top-level scope
   ```
+* ```@CurrentTask```
+
+  A macro calls the function ```CurrentTask(FuncName::Symbol)``` with parameter ```CurrentTask(nameof(var"#self#"))```. Inspired from the issue https://github.com/JuliaLang/julia/issues/6733.
+  
 
 ### ChernNumber
 * ```ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int, KxLim::AbstractVector{<:Real}, KyLim::AbstractVector{<:Real}, Density::Int=21)```

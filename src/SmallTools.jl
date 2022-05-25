@@ -54,20 +54,7 @@ end
 
 function CurrentTask()
     FuncName = stacktrace()[begin+1].func
-    S1 = "---------------------------------------------"
-    S2 = "-Current Task: "
-    S3 = "$(FuncName)\n"
-    STR = join([S1, S2, S3])
-
-    if length(STR) > displaysize(stdout)[2]
-        CutLength = displaysize(stdout)[2]
-        if CutLength < length(S2) + length(S3)
-            CutLength = length(S2) + length(S3)
-        end
-        STR = STR[end-CutLength:end]
-    end
-
-    printstyled(STR; color = :blue)
+    CurrentTask(FuncName)
 end
 
 export SignalCut

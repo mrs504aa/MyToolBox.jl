@@ -103,8 +103,8 @@ Personal Toolbox.
 
   Restore the packages based on the printed file.
 
-### PackageUsing
+<!-- ### PackageUsing
 * ```IfNotUsedThenUsing(PackageName::String)```
 * ```IfNotUsedThenUsing(PackageList::Vector{String})```
   
-  Check if a package is already used. If not then ```using``` it.
+  Check if a package is already used. If not then ```using``` it. -->

@@ -1,6 +1,8 @@
 # MyToolBox.jl
 ## News
 Better ```CurrentTask()```.
+
+Add macro ```@CurrentTask```.
 ## Introduction
 Personal Toolbox.
 ## Functions
@@ -43,6 +45,10 @@ Personal Toolbox.
 * ```CurrentTask(FuncName::Symbol)```
 
   Tracking the function being executed. Just need to insert ```CurrentTask(nameof(var"#self#"))``` at the place you want.
+  ```
+  julia> CurrentTask(:Hello)
+  ----------------------------------------------Current Task: Hello
+  ```
 
 * ```CurrentTask()```
   
@@ -51,6 +57,19 @@ Personal Toolbox.
   julia> CurrentTask()
   ----------------------------------------------Current Task: top-level scope
   ```
+* ```@CurrentTask```
+
+  A macro calls the function ```CurrentTask(FuncName::Symbol)``` with parameter ```CurrentTask(nameof(var"#self#"))```. Inspired from the issue https://github.com/JuliaLang/julia/issues/6733.
+  ```
+  julia> function A()
+           @CurrentTask
+       end
+  A (generic function with 1 method)
+
+  julia> A()
+  ----------------------------------------------Current Task: A
+  ```
+
 
 ### ChernNumber
 * ```ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int, KxLim::AbstractVector{<:Real}, KyLim::AbstractVector{<:Real}, Density::Int=21)```
@@ -85,7 +104,6 @@ Personal Toolbox.
   Restore the packages based on the printed file.
 
 ### PackageUsing
-* ```IfNotUsedThenUsing(PackageName::String)```
-* ```IfNotUsedThenUsing(PackageList::Vector{String})```
+* ```@IfNotUsedThenUsing(PackageName::String)```
   
   Check if a package is already used. If not then ```using``` it.

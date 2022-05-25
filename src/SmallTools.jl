@@ -65,7 +65,7 @@ end
 export SignalCut
 export SignalNormalization
 export VectorSplit
-export CurrentTask
+export CurrentTask, @CurrentTask
 
 if basename(PROGRAM_FILE) == basename(@__FILE__)
     function TestFunction()

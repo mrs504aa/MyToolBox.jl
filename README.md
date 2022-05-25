@@ -1,6 +1,6 @@
 # MyToolBox.jl
 ## News
-Add support for ```AbstractArray```.
+Better ```CurrentTask()```.
 ## Introduction
 Personal Toolbox.
 ## Functions
@@ -22,6 +22,10 @@ Personal Toolbox.
 * ```CurrentTask(FuncName::Symbol)```
 
   Tracking the function being executed. Just need to insert ```CurrentTask(nameof(var"#self#"))``` at the place you want.
+
+* ```CurrentTask()```
+  
+  Tracking the function being executed, use ```stacktrace()``` to get the function name before ```CurrentTask()``` is called.
 
 ### ChernNumber
 * ```ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int, KxLim::AbstractVector{<:Real}, KyLim::AbstractVector{<:Real}, Density::Int=21)```

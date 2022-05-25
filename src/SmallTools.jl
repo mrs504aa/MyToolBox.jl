@@ -29,7 +29,7 @@ function VectorSplit(TargetVector::AbstractVector, N::Int)
     CutStart = firstindex(TargetVector)
     for i = 1:N
         Result[i] = TargetVector[CutStart:CutStart-1+L2+(i-1<X)]
-        CutStart += L2 + (i-1 < X)
+        CutStart += L2 + (i - 1 < X)
     end
 
     return Result
@@ -52,7 +52,32 @@ function CurrentTask(FuncName::Symbol)
     printstyled(STR; color = :blue)
 end
 
+function CurrentTask()
+    FuncName = stacktrace()[begin+1].func
+    S1 = "---------------------------------------------"
+    S2 = "-Current Task: "
+    S3 = "$(FuncName)\n"
+    STR = join([S1, S2, S3])
+
+    if length(STR) > displaysize(stdout)[2]
+        CutLength = displaysize(stdout)[2]
+        if CutLength < length(S2) + length(S3)
+            CutLength = length(S2) + length(S3)
+        end
+        STR = STR[end-CutLength:end]
+    end
+
+    printstyled(STR; color = :blue)
+end
+
 export SignalCut
 export SignalNormalization
 export VectorSplit
 export CurrentTask
+
+if basename(PROGRAM_FILE) == basename(@__FILE__)
+    function TestFunction()
+        CurrentTask()
+    end
+    TestFunction()
+end

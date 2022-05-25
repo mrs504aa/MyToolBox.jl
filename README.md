@@ -8,16 +8,37 @@ Personal Toolbox.
 * ```SignalCut(TargetSignal::AbstractVector, ReferenceSignal::AbstractVector{<:Real}, Window::AbstractVector{<:Real})```
 
   This function cut the ```TargetSignal``` based on the ```ReferenceSignal```, with Reference's value from the first element of ```Window``` to the second element of ```Window```.   This function returns the same type of ```TargetSignal```.
+  ```
+  julia> SignalCut(["a", "b", "c"], [1, 2, 3], [1.5, 2.5])
+  1-element Vector{String}:
+  "b"
+  ```
 
 * ```SignalNormalization(A::AbstractVector{<:Real}; TriangularSignal::Bool = false)```
 
   Normalize the real number vector ```A```. if ```TriangularSignal``` is ```true```, then the signal will be normalized based on its standard deviation.
   This function returns the same type of ```A```.
+  ```
+  julia> SignalNormalization(rand(5))
+  5-element Vector{Float64}:
+  0.20449276098988486
+  0.42580079054186
+  1.0
+  0.0
+  0.5777728018962027
+  ```
  
 * ```VectorSplit(TargetVector::AbstractVector, N::Int)```
 
   Similar function to ```numpy.array_split``` in 1 dim.
   This function returns ```Vector{Vector{<:Any}}```.
+  ```
+  julia> VectorSplit(rand(10), 3)
+  3-element Vector{Vector{Float64}}:
+  [0.7586332209712368, 0.08142437829248872, 0.269257485848563, 0.7962988776077914]
+  [0.2285139025652192, 0.8083763585147616, 0.1026721069191413]
+  [0.21644242937949254, 0.5055168332610793, 0.01393917657638355]
+  ```
 
 * ```CurrentTask(FuncName::Symbol)```
 
@@ -26,6 +47,10 @@ Personal Toolbox.
 * ```CurrentTask()```
   
   Tracking the function being executed, use ```stacktrace()``` to get the function name before ```CurrentTask()``` is called.
+  ```
+  julia> CurrentTask()
+  ----------------------------------------------Current Task: top-level scope
+  ```
 
 ### ChernNumber
 * ```ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int, KxLim::AbstractVector{<:Real}, KyLim::AbstractVector{<:Real}, Density::Int=21)```

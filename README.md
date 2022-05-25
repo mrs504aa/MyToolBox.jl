@@ -45,6 +45,10 @@ Personal Toolbox.
 * ```CurrentTask(FuncName::Symbol)```
 
   Tracking the function being executed. Just need to insert ```CurrentTask(nameof(var"#self#"))``` at the place you want.
+  ```
+  julia> CurrentTask(:Hello)
+  ----------------------------------------------Current Task: Hello
+  ```
 
 * ```CurrentTask()```
   
@@ -56,7 +60,16 @@ Personal Toolbox.
 * ```@CurrentTask```
 
   A macro calls the function ```CurrentTask(FuncName::Symbol)``` with parameter ```CurrentTask(nameof(var"#self#"))```. Inspired from the issue https://github.com/JuliaLang/julia/issues/6733.
-  
+  ```
+  julia> function A()
+           @CurrentTask
+       end
+  A (generic function with 1 method)
+
+  julia> A()
+  ----------------------------------------------Current Task: A
+  ```
+
 
 ### ChernNumber
 * ```ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int, KxLim::AbstractVector{<:Real}, KyLim::AbstractVector{<:Real}, Density::Int=21)```

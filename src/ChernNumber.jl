@@ -68,10 +68,10 @@ function ChernNumber(HamiltonianModel, Paras::Tuple; HamiltonianDim::Int, KxLim:
 
     ResultM = zeros(Float64, HamiltonianDim, Density, Density)
 
-    Threads.@threads for i in 1:Density
-        for j in 1:Density
-            ResultM[:, i, j] = LatticeField((KxAxis[i], KyAxis[j]), (KxTick, KyTick), HamiltonianDim, HamiltonianModel, Paras)
-        end
+    Threads.@threads for ij in 1:Density^2
+        i = div(ij - 1, Density) + 1
+        j = mod(ij - 1, Density) + 1
+        ResultM[:, i, j] = LatticeField((KxAxis[i], KyAxis[j]), (KxTick, KyTick), HamiltonianDim, HamiltonianModel, Paras)
     end
 
     Result = zeros(Float64, HamiltonianDim)
